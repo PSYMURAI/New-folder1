@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/admin/participants.css">
+    <style>
+        /* Add your custom styles here */
+
+        /* Style for event count boxes */
+        .event-counts-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .event-count-box {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            width: 200px;
+        }
+
+        .box-topic {
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #3498db; /* Change color as needed */
+        }
+        @media (max-width: 600px) {
+            body{
+                overflow-x: hidden;
+            }
+            .event-counts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+            align-items: center;
+        }
+        .event-count-box{
+            margin: 10px;
+            width: 200px;
+        }
+    }
+
+    </style>
+</head>
+
+<body>
+    <form action="/admin/logout" method="GET">
+        <button class="logout" type="submit">Logout</button>
+        <a class="link" href="/admin/dashboard">Dashboard</a>
+        <a class="link" href="/admin/dashboard/events">Events</a>
+    </form>
+
+    <div class="message">
+        <div class="success">
+            <h2>
+                <%= success %>
+            </h2>
+        </div>
+        <div class="error">
+            <h2>
+                <%= error %>
+            </h2>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>User Information</h1>
+        <div class="event-counts-container">
+            <div class="event-count-box">
+                <h3 class="box-topic">Creativity Club Participants Count</h3>
+                <span class="number">
+                    <%= creativity_clubParticipants %>
+                </span>
+            </div>
+            <div class="event-count-box">
+                <h3 class="box-topic">Quick Reel Participants Count</h3>
+                <span class="number">
+                    <%= quick_reelParticipants %>
+                </span>
+            </div>
+            <div class="event-count-box">
+                <h3 class="box-topic">hackTheDarkParticipants Count</h3>
+                <span class="number">
+                    <%= hackTheDarkParticipants %>
+                </span>
+            </div>
+            <div class="event-count-box">
+                <h3 class="box-topic">quantumAssemblerParticipants Count</h3>
+                <span class="number">
+                    <%= quantumAssemblerParticipants %>
+                </span>
+            </div>
+            <div class="event-count-box">
+                <h3 class="box-topic">wisdomWarParticipants Count</h3>
+                <span class="number">
+                    <%= wisdomWarParticipants %>
+                </span>
+            </div>
+            <div class="event-count-box">
+                <h3 class="box-topic">goldRushParticipants Count</h3>
+                <span class="number">
+                    <%= goldRushParticipants %>
+                </span>
+            </div>
+            <div class="event-count-box">
+                <h3 class="box-topic"> gamer_strike Count</h3>
+                <span class="number">
+                    <%= gamer_strikeParticipants %>
+                </span>
+            </div>
+            <div class="event-count-box">
+                <h3 class="box-topic">brainBattleParticipants Count</h3>
+                <span class="number">
+                    <%= brain_battleParticipants %>
+                </span>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>no</th>
+                    <th>Name</th>
+                    <th>College</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Creativity Club</th>
+                    <th>Quick Reel</th>
+                    <th>Brain Battle</th>
+                    <th>Hack The Dark</th>
+                    <th>Quantum Assembler</th>
+                    <th>Wisdom War</th>
+                    <th>Gold Rush</th>
+                    <th>Gamer Strike</th>
+                    <th>total_amount</th>
+
+                    <th>Image</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <% let count=1; %>
+                    <% users.forEach((user)=> { %>
+                        <tr>
+                            <td>
+                                <%= count++ %>
+                            </td>
+                            <td>
+                                <%= user.name %>
+                            </td>
+                            <td>
+                                <%= user.collegeName %>
+                            </td>
+                            <td>
+                                <%= user.mobile %>
+                            </td>
+                            <td>
+                                <%= user.email %>
+                            </td>
+                            <td>
+                                <%= user.creativity_club %>
+                            </td>
+                            <td>
+                                <%= user.quick_reel %>
+                            </td>
+                            <td>
+                                <%= user.brain_battle %>
+                            </td>
+                            <td>
+                                <%= user.hackTheDark %>
+                            </td>
+                            <td>
+                                <%= user.quantamAssembler %>
+                            </td>
+                            <td>
+                                <%= user.wisdom_war %>
+                            </td>
+                            <td>
+                                <%= user.gold_rush %>
+                            </td>
+                            <td>
+                                <%= user.gamer_strike %>
+                            </td>
+                            <td>
+                                <%= user.total_amount %>
+                            </td>
+                            
+                            <td>
+                                <% if (user.paymentImage) { %>
+                                    <img src='https://drive.google.com/uc?export=view&id=<%= user.paymentImage %>&quality=50'
+                                        alt="Payment Image" width="100px"
+                                        onclick="openImagePopup('https://drive.google.com/uc?export=view&id=<%= user.paymentImage %>&quality=50')">
+                                <% } else { %>
+                                    <p>Error: Image not found</p>
+                                <% } %>
+                            </td>
+                         
+
+
+
+                        </tr>
+                        <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <script src="/js/admin/participants.js"></script>
+    <script>
+        function approveUser(userId) {
+            console.log('Button clicked. User ID:', userId);
+
+            fetch('/send-auto-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ userIds: [userId] }),
+            })
+                .then(response => response.json())
+                .then(result => {
+                    console.log('Response from server:', result.message);
+                })
+                .catch(error => {
+                    console.error('Error sending auto-generated email:', error);
+                });
+        }
+
+    </script>
+
+</body>
+
+</html>

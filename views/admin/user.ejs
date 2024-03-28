@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>All Users</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/admin/user.css">
+
+</head>
+
+<body>
+    <form action="/admin/logout" method="GET">
+        <button class="button" type="submit">Logout</button>
+        <a class="button" href="/admin/dashboard">Dashboard</a>
+        <a class="button" href="/admin/dashboard/events">Events</a>
+    </form>
+
+    <div class="message">
+        <div class="success">
+            <h2>
+                <%= success %>
+            </h2>
+        </div>
+        <div class="error">
+            <h2>
+                <%= error %>
+            </h2>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>User Information</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>no</th>
+                    <th>Name</th>
+                    <th>College</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Creativity Club</th>
+                    <th>Quick Reel</th>
+                    <th>Brain Battle</th>
+                    <th>Hack The Dark</th>
+                    <th>Quantum Assembler</th>
+                    <th>Wisdom War</th>
+                    <th>Gold Rush</th>
+                    <th>Gamer Strike</th>
+                    <th>total amount</th>
+
+
+                    <th>time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% let count=1; %>
+                    <% users.forEach((user)=> { %>
+                        <tr>
+                            <td>
+                                <%= count++ %>
+                            </td>
+                            <td>
+                                <%= user.name %>
+                            </td>
+                            <td>
+                                <%= user.collegeName %>
+                            </td>
+                            <td>
+                                <%= user.mobile %>
+                            </td>
+                            <td>
+                                <%= user.email %>
+                            </td>
+                            <td>
+                                <%= user.creativity_club %>
+                            </td>
+                            <td>
+                                <%= user.quick_reel %>
+                            </td>
+                            <td>
+                                <%= user.brain_battle %>
+                            </td>
+                            <td>
+                                <%= user.hackTheDark %>
+                            </td>
+                            <td>
+                                <%= user.quantamAssembler %>
+                            </td>
+                            <td>
+                                <%= user.wisdom_war %>
+                            </td>
+                            <td>
+                                <%= user.gold_rush %>
+                            </td>
+                            <td>
+                                <%= user.gamer_strike %>
+                            </td>
+                            <td>
+                                <%= user.total_amount %>
+                            </td>
+
+
+                            <td>
+                                <%= user.date_time_submit %>
+                            </td>
+                        </tr>
+                        <% }); %>
+            </tbody>
+        </table>
+        
+      <a href="/admin/download-excel" style="margin-top: 30px;" class="button">Download Excel</a>  
+
+    </div>
+    <script src="/js/admin/participants.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  h1{
+    text-align: center;
+  }
+  
+  body {
+    padding: auto;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+  }
+  form{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+  }
+  a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+  
+  a:hover {
+    color: #0056b3; /* Change color on hover */
+  }
+  .button {
+    background-color: #007bff; /* Change background color on hover */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for background color change */
+  }
+  
+ 
+  
+  .container {
+    width: 150%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  table {
+    
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+
+  
+  .message {
+    margin-top: 20px;
+  }
+  
+
+  .success {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  .error {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 600px) {
+    body{
+        overflow-x: hidden;
+    }
+    container{
+        overflow-x: hidden;
+    }
+    table, th, td {
+      display: block;
+      
+    }
+  
+    th, td {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    tr{
+        
+        border-bottom: 3px solid blue;
+    }
+  
+    td img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  

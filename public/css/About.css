@@ -1,0 +1,56 @@
+/* body {
+	background: rgba(6, 12, 34, 0.98);
+	color: white;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+} */
+
+.About-container {
+	box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.1);
+	padding: 2rem;
+	margin-top: 170px;
+	background-image: url('../img/background.Webp');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.About-container h2 {
+	color: #dc3545;
+	margin-top: 200px;
+	padding-top: 50px;
+}
+
+.About-container p>b {
+	color: #e8e5e5;
+}
+
+.About-container p {
+	margin-left: 2rem;
+	color: white;
+}
+
+
+@media (width<=425px){
+	.About-container {
+		padding: 1rem;
+		margin-top:5rem ;
+
+	}
+
+	.About-container h2 {
+		color: #dc3545;
+	}
+	
+	.About-container p b {
+		color: #e8e5e5;
+	}
+	
+	.About-container p {
+		margin-left: 2rem;
+		color:white;
+	}
+	
+	
+}

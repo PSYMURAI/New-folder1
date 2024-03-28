@@ -1,0 +1,15 @@
+<div class="loader-container" id="loader"><img src="/img/Staff_Images/interactionLogo.Webp" alt="">
+</div>
+<script>
+	var loader = document.getElementById("loader");
+  
+  // Wait for the window to be completely loaded
+  window.addEventListener("load", function () {
+	// Hide the loader after 3000 milliseconds (3 seconds)
+	setTimeout(function () {
+	  if (loader) {
+		loader.style.display = "none";
+	  }
+	}, 100); // Adjust the time (in milliseconds) according to your needs
+  });
+  </script>
